@@ -1,0 +1,659 @@
+fieldset,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul {
+    padding: 0;
+    margin: 0
+}
+
+html {
+    font-size: 100%;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%
+}
+
+a:focus,
+button:focus,
+select:focus {
+    outline-style: dotted;
+    outline-width: thin
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    vertical-align: middle;
+    border: 0;
+    -ms-interpolation-mode: bicubic
+}
+
+button,
+input,
+select,
+textarea {
+    margin: 0;
+    font-size: 100%;
+    vertical-align: middle;
+    font-family: inherit
+}
+
+fieldset {
+    border: none
+}
+
+* {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box
+}
+
+.-u-button {
+    color: #fff;
+    fill: #fff;
+    text-decoration: none;
+    padding: 10px 20px;
+    background-color: #008a00;
+    display: inline-block;
+    border-radius: 3px;
+    text-transform: uppercase;
+    border: 0
+}
+
+.-u-button:hover {
+    background-color: #019a01
+}
+
+.-u-container {
+    display: block;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px
+}
+
+@media (min-width:1700px) {
+    .-u-container {
+        max-width: 1600px
+    }
+}
+
+.-u-container.wide {
+    max-width: none
+}
+
+.-u-imageUpload {
+    position: relative;
+    background-color: #fff;
+    color: #000;
+    text-align: center;
+    height: 180px;
+    font-family: inherit;
+    cursor: pointer;
+    margin-bottom: 20px
+}
+
+.-u-imageUpload span {
+    margin-top: 78px;
+    display: inline-block;
+    text-transform: uppercase
+}
+
+.-u-imageUpload canvas,
+.-u-imageUpload img {
+    width: 100%;
+    display: none;
+    max-height: 180px;
+    object-fit: cover
+}
+
+.-u-imageUpload button {
+    border: 0;
+    margin: 0;
+    padding: 5px 1px;
+    font-size: 25px;
+    line-height: 25px;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background: rgba(255, 255, 255, .3);
+    display: none
+}
+
+.-u-imageUpload button:hover {
+    background: rgba(255, 255, 255, .8)
+}
+
+.-u-imageUpload input[type=file] {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: .01;
+    cursor: pointer;
+    margin: 0 !important
+}
+
+.-u-imageUpload.hasFile {
+    height: auto;
+    background: 0 0
+}
+
+.-u-imageUpload.hasFile span {
+    display: none
+}
+
+.-u-imageUpload.hasFile button,
+.-u-imageUpload.hasFile canvas,
+.-u-imageUpload.hasFile img {
+    display: block
+}
+
+.-u-imageUpload:hover {
+    background-color: #ccc
+}
+
+body,
+html {
+    background: #282d32;
+    color: #fff;
+    font-family: sans-serif;
+    margin: 0
+}
+
+.Header {
+    background-color: #202428;
+    padding: 15px 0;
+    margin-bottom: 20px
+}
+
+.Header .logo {
+    color: #fff;
+    text-decoration: none;
+    font-size: 25px;
+    line-height: 100%;
+    font-weight: 700;
+    margin: -15px -20px;
+    padding: 15px 20px
+}
+
+.Header .logo:hover {
+    background-color: #3d4247
+}
+
+.Header .upload {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 20px;
+    margin: -8px 0 -10px;
+    float: right;
+    background-color: #008a00
+}
+
+.Header .upload svg {
+    fill: #fff;
+    width: 24px;
+    height: 24px
+}
+
+.Header .upload:hover {
+    background-color: #019a01
+}
+
+.ImageComparer {
+    overflow: hidden;
+    z-index: 11;
+    background: #282d32;
+    text-align: center;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -webkit-user-select: none;
+    user-select: none
+}
+
+.ImageComparer :focus {
+    outline: 0 !important
+}
+
+.ImageComparer ::-moz-focus-inner {
+    border: 0
+}
+
+.ImageComparer.zoom .box .before img,
+.ImageComparer.zoom .box img.after {
+    transform: scale(3);
+    image-rendering: pixelated;
+    max-width: unset
+}
+
+.ImageComparer .box {
+    position: relative;
+    display: inline-block;
+    font-size: 20px;
+    line-height: 100%;
+    overflow: hidden;
+    background-color: #202428
+}
+
+.ImageComparer .box img {
+    display: block;
+    width: auto;
+    max-height: calc(100vh - 100px);
+    object-fit: cover
+}
+
+.ImageComparer .box img.after {
+    width: 100%
+}
+
+.ImageComparer .box .description {
+    position: absolute;
+    z-index: 10;
+    bottom: 10px;
+    left: 20px;
+    white-space: nowrap;
+    color: #fff;
+    text-shadow: -1px -1px 2px #000, 1px 1px 2px #000
+}
+
+.ImageComparer .box .controls {
+    position: absolute;
+    z-index: 10;
+    bottom: 10px;
+    right: 15px
+}
+
+.ImageComparer .box .controls a {
+    display: inline-block;
+    padding: 10px 11px;
+    text-decoration: none;
+    white-space: nowrap;
+    fill: #333;
+    box-shadow: 1px 1px 4px #000;
+    background: #fff;
+    border-radius: 9999px
+}
+
+.ImageComparer .box .controls a:hover {
+    background-color: #008a00;
+    fill: #fff
+}
+
+.ImageComparer .box .controls a.fullscreen-exit,
+.ImageComparer .box .controls a.zoom-out {
+    display: none
+}
+
+.ImageComparer .box .controls a svg {
+    width: 24px;
+    height: 24px
+}
+
+@media (max-width:1024px) {
+    .ImageComparer .box .controls a {
+        padding: 6px 7px
+    }
+}
+
+.ImageComparer .box .slider {
+    position: absolute;
+    z-index: 9;
+    top: 0;
+    right: calc(50% - 1px);
+    bottom: 0;
+    width: 2px;
+    background-color: rgba(255, 255, 255, .5);
+    border-top: 0;
+    border-bottom: 0;
+    box-shadow: 0 0 2px rgba(0, 0, 0, .5)
+}
+
+.ImageComparer .box .slider button {
+    position: absolute;
+    top: calc(50% - 40px);
+    left: -4px;
+    width: 10px;
+    background-color: #ddd;
+    border: 4px solid #fff;
+    height: 80px;
+    text-align: center;
+    padding: 0;
+    outline: 0;
+    cursor: ew-resize;
+    box-shadow: 0 0 2px rgba(0, 0, 0, .5)
+}
+
+.ImageComparer .box .slider button:hover {
+    background-color: #777
+}
+
+.ImageComparer .box .slider .afterDescription,
+.ImageComparer .box .slider .beforeDescription {
+    position: absolute;
+    white-space: nowrap;
+    color: #fff;
+    text-shadow: -1px -1px 2px #000, 1px 1px 2px #000;
+    text-align: left
+}
+
+.ImageComparer .box .slider .afterDescription select,
+.ImageComparer .box .slider .beforeDescription select {
+    padding: 5px 10px;
+    border: 0;
+    border-radius: 0;
+    font-size: 16px
+}
+
+.ImageComparer .box .slider .beforeDescription {
+    top: 10px;
+    right: 20px
+}
+
+.ImageComparer .box .slider .afterDescription {
+    top: 10px;
+    right: -520px;
+    width: 500px
+}
+
+.ImageComparer .box .before {
+    position: absolute;
+    z-index: 8;
+    top: 0;
+    left: 0;
+    right: 50%;
+    bottom: 0;
+    overflow: hidden
+}
+
+.ImageComparer .box .before img {
+    height: 100%;
+    max-width: 100%;
+    object-position: left
+}
+
+.ImageComparer.sliding .afterDescription,
+.ImageComparer.sliding .beforeDescription,
+.ImageComparer.sliding .controls,
+.ImageComparer.sliding .description {
+    opacity: .5
+}
+
+.ImageComparer.sliding .slider button {
+    opacity: 0
+}
+
+.ImageComparer:-webkit-full-screen {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: absolute
+}
+
+.ImageComparer:-webkit-full-screen .box {
+    max-height: 100%
+}
+
+.ImageComparer:-webkit-full-screen .before img,
+.ImageComparer:-webkit-full-screen img.after {
+    max-width: none;
+    width: 100vw;
+    height: 100vh;
+    max-height: none;
+    object-fit: contain;
+    object-position: center
+}
+
+.ImageComparer:-webkit-full-screen .controls a.fullscreen {
+    display: none
+}
+
+.ImageComparer:-webkit-full-screen .controls a.fullscreen-exit {
+    display: inline-block
+}
+
+.ImageComparer.zoom .controls a.zoom-in {
+    display: none
+}
+
+.ImageComparer.zoom .controls a.zoom-out {
+    display: inline-block
+}
+
+.ImageComparerList h2 {
+    margin-top: 50px;
+    padding: 10px
+}
+
+.ImageComparerList ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap
+}
+
+.ImageComparerList ul li a {
+    text-decoration: none;
+    border: 0
+}
+
+.ImageComparerList ul li a img {
+    border: 0;
+    width: 222px;
+    height: 110px;
+    object-fit: cover;
+    background: #777
+}
+
+.UploadForm {
+    max-width: 700px;
+    margin: 0 auto
+}
+
+.UploadForm h1 {
+    font-weight: 400;
+    font-size: 50px;
+    line-height: 150%;
+    margin-top: 80px;
+    margin-bottom: 80px;
+    text-align: center
+}
+
+.UploadForm label {
+    display: block;
+    margin-bottom: 5px;
+    color: #bbb
+}
+
+.UploadForm input {
+    display: block;
+    margin-bottom: 40px;
+    border: 0;
+    padding: 10px 15px;
+    font-family: inherit
+}
+
+.UploadForm .descriptionInput {
+    width: 100%
+}
+
+.UploadForm .box-container {
+    margin: 0 -20px
+}
+
+.UploadForm .box {
+    background-color: #202428;
+    padding: 10px 20px;
+    float: left;
+    width: calc(50% - 10px)
+}
+
+.UploadForm .box input {
+    width: 100%;
+    margin-bottom: 10px
+}
+
+.UploadForm .box input[type=file] {
+    padding: 0 0 15px;
+    margin-bottom: 25px;
+    cursor: pointer;
+    background-color: transparent
+}
+
+.UploadForm .box input[type=file].input-validation-error {
+    border-bottom: 5px solid #e51300;
+    padding-bottom: 10px
+}
+
+.UploadForm .box input[type=file]::-webkit-file-upload-button {
+    font-family: inherit
+}
+
+.UploadForm .box:nth-child(2n+1) {
+    margin-right: 20px
+}
+
+.UploadForm.multiple h2 {
+    margin-bottom: 20px
+}
+
+.UploadForm.multiple .box {
+    padding: 20px 20px 10px;
+    margin-bottom: 20px
+}
+
+.UploadForm.multiple .addImage,
+.UploadForm.multiple .removeImage {
+    background-color: #555;
+    margin-right: 10px;
+    padding: 10px;
+    display: inline-flex;
+    align-items: center
+}
+
+.UploadForm.multiple .addImage svg,
+.UploadForm.multiple .removeImage svg {
+    width: 24px;
+    height: 24px
+}
+
+.UploadForm.multiple .addImage:hover,
+.UploadForm.multiple .removeImage:hover {
+    background-color: #777
+}
+
+.UploadForm .validation-summary {
+    color: #e51300;
+    margin-top: 40px
+}
+
+.UploadForm .validation-summary ul {
+    list-style: none;
+    text-align: center
+}
+
+.UploadForm .validation-summary ul li {
+    margin-bottom: 5px
+}
+
+.UploadForm .uploadbar {
+    display: none
+}
+
+.UploadForm input[type=submit] {
+    margin-top: 40px
+}
+
+.UploadForm.uploading .uploadbar {
+    display: block;
+    text-align: center;
+    font-size: 30px
+}
+
+.UploadForm.uploading .uploadbar svg {
+    width: 50px;
+    height: 50px;
+    fill: #fff;
+    animation-name: ckw;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    transform-origin: 50% 50%;
+    animation-timing-function: linear
+}
+
+@keyframes ckw {
+    0% {
+        transform: rotate(0)
+    }
+
+    100% {
+        transform: rotate(360deg)
+    }
+}
+
+.UploadForm.uploading input[type=submit] {
+    display: none
+}
+
+.WelcomeArticle {
+    text-align: center;
+    margin-bottom: 100px
+}
+
+.WelcomeArticle h1 {
+    font-weight: 400;
+    font-size: 50px;
+    line-height: 150%;
+    margin-top: 80px
+}
+
+/* 
+.WelcomeArticle h1 .name {
+    font-weight: 700
+}
+
+.WelcomeArticle .header-description {
+    margin-top: 10px;
+    color: #bbb;
+    margin-bottom: 160px
+}
+
+.WelcomeArticle .slider-description {
+    margin-bottom: 20px;
+    color: #bbb
+}
+
+.WelcomeArticle .upload {
+    margin-bottom: 80px;
+    padding: 20px 40px;
+    display: inline-flex;
+    align-items: center;
+    gap: 20px;
+    font-size: 25px;
+    position: relative;
+    border-radius: 4px
+}
+
+.WelcomeArticle .upload svg {
+    fill: #fff;
+    width: 32px;
+    height: 32px
+} */
+
+
+.leftinputbox {
+    float: left;
+    width: 500px;
+    height: 30x;
+    margin-right: -100%;
+}
+
+.rightinputbox {
+    margin-left: 310px;
+    height: 30x;
+}

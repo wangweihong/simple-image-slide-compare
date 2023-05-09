@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="./css/global.css" />
+    <script>window.scripts = [];</script>
+    <!-- script.src = "https://imgsli.com/bundling/main.js?v=pKQ8ASHNgnlsoDSsNYWPZ2tFPEIjVx2uoCPm0gmqUl8"; -->
+
+    <script type="text/javascript" src="./js/imgsli_bundling_main.js"></script>
+    <!-- <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script> -->
+    <script src="./js/jquery_3.3.1_jquery.js"></script>
+</head>
+
+<body>
+    <div class="ImageComparer" style="min-height: min(878px, 100vw / 2);">
+        <div class="box">
+            <div class="description" id="battletitle">原图高清对比</div>
+            <div class="controls">
+                <a href="#" class="zoom-in" title="toggle zoom"><svg xmlns="http://www.w3.org/2000/svg" width="32"
+                        height="32" viewBox="0 0 32 32">
+                        <path
+                            d="M0 14.304q0-5.92 4.192-10.112t10.112-4.192 10.176 4.192 4.192 10.112q0 4.512-2.624 8.192l5.952 5.952-3.552 3.552-5.952-5.952q-3.68 2.624-8.192 2.624-5.92 0-10.112-4.192t-4.192-10.176zM4.064 14.304q0 4.256 3.008 7.264t7.232 2.976 7.264-2.976 3.008-7.264-3.008-7.2-7.264-2.976-7.232 2.976-3.008 7.2zM8.192 16.384v-4.064h4.128v-4.128h4.064v4.128h4.128v4.064h-4.128v4.128h-4.064v-4.128h-4.128z">
+                        </path>
+                    </svg></a>
+                <a href="#" class="zoom-out" title="toggle zoom"><svg xmlns="http://www.w3.org/2000/svg" width="32"
+                        height="32" viewBox="0 0 32 32">
+                        <path
+                            d="M0 14.304q0-5.92 4.192-10.112t10.112-4.192 10.176 4.192 4.192 10.112q0 4.512-2.624 8.192l5.952 5.952-3.552 3.552-5.952-5.952q-3.68 2.624-8.192 2.624-5.92 0-10.112-4.192t-4.192-10.176zM4.064 14.304q0 4.256 3.008 7.264t7.232 2.976 7.264-2.976 3.008-7.264-3.008-7.2-7.264-2.976-7.232 2.976-3.008 7.2zM8.192 16.384v-4.064h12.32v4.064h-12.32z">
+                        </path>
+                    </svg></a>
+                <a href="#" class="fullscreen" title="toggle fullscreen"><svg xmlns="http://www.w3.org/2000/svg"
+                        width="32" height="32" viewBox="0 0 32 32">
+                        <path
+                            d="M4.576 20.576H0V32h11.424v-4.576H4.576v-6.848zM0 11.424h4.576V4.576h6.848V0H0v11.424zm27.424 16h-6.848V32H32V20.576h-4.576v6.848zM20.576 0v4.576h6.848v6.848H32V0H20.576z">
+                        </path>
+                    </svg></a>
+                <a href="#" class="fullscreen-exit" title="toggle fullscreen"><svg xmlns="http://www.w3.org/2000/svg"
+                        width="32" height="32" viewBox="0 0 32 32">
+                        <path
+                            d="M0 25.152h6.848V32h4.576V20.576H0v4.576zM6.848 6.848H0v4.576h11.424V0H6.848v6.848zM20.576 32h4.576v-6.848H32v-4.576H20.576V32zm4.576-25.152V0h-4.576v11.424H32V6.848h-6.848z">
+                        </path>
+                    </svg></a>
+            </div>
+            <div class="slider">
+                <button></button>
+                <div class="beforeDescription" id="beforeDescription">原图</div>
+                <div class="afterDescription" id="afterDescription">高清放大</div>
+            </div>
+            <div class="before">
+                <img alt="OFF" id="beforeImage" data-lazy-src="./img/before.png" src="./img/before.png" style>
+            </div>
+            <img alt="ON" class="after" id="afterImage" src="./img/highres.png" style>
+        </div>
+
+    </div>
+    <div class="textbox">
+        <div class="titleinputbox">
+            <form enctype="multipart/form-data">
+                <fieldset>
+                    <p>对比标题:<input id="titlebox" value="原图高清对比" /></p>
+                </fieldset>
+                <!-- <input type="file" id="titleinput" name="titleinput" />
+                </fieldset> -->
+            </form>
+        </div>
+        <div class="leftinputbox">
+            <form enctype="multipart/form-data">
+                <fieldset>
+                    <!-- 指定左图标题 -->
+                    <p>左图:<input id="lefttag" value="原图" /></p>
+                    <!-- 指定左图输入 -->
+                    <input type="file" id="leftInputImage" name="leftInputImage" />
+
+                </fieldset>
+
+            </form>
+        </div>
+        <div class="rightinputbox">
+            <form enctype="multipart/form-data">
+                <fieldset>
+                    <!-- 指定右图标题 -->
+                    <p>右图:<input id="righttag" value="高清放大" /></p>
+                    <!-- 指定右图输入 -->
+                    <input type="file" id="rightInputImage" name="rightInputImage" />
+                </fieldset>
+            </form>
+        </div>
+
+    </div>
+    <script type="text/javascript">
+        // 获取文件上传临时路径
+        function getObjectURL(file) {
+            if (window.createObjectURL != undefined) {
+                return window.createObjectURL(file);
+            }
+
+            if (window.URL != undefined) {
+                return window.URL.createObjectURL(file);
+            }
+
+            if (window.webkitURL != undefined) {
+                return window.webkitURL.createObjectURL(file);
+            }
+            return null;
+        }
+
+        // 当指定ID的元素发生改变时，更改img元素，以显示指定的图片
+        // 更改左图的图片
+        $('#leftInputImage').change(function () {
+            var eImg = $('#beforeImage');
+            // 将img元素中的属性src,更改为指定路径
+            eImg.attr('src', getObjectURL($(this)[0].files[0]));
+        });
+        // 更改右图的图片
+        $('#rightInputImage').change(function () {
+            var eImg = $('#afterImage');
+            // 将img元素中的属性src,更改为指定路径
+            eImg.attr('src', getObjectURL($(this)[0].files[0]));
+        });
+
+        //修改左图标题
+        $('#lefttag').change(function () {
+            document.getElementById("beforeDescription").innerHTML = document.getElementById('lefttag').value;
+        });
+
+        //修改右图标题
+        $('#righttag').change(function () {
+            document.getElementById("afterDescription").innerHTML = document.getElementById('righttag').value;
+        });
+
+        //输入框修改时，修改图片上div的显示
+        $('#titlebox').change(function () {
+            document.getElementById("battletitle").innerHTML = document.getElementById('titlebox').value;
+        });    
+    </script>
+
+    <script>
+        window.scripts.push(function () {
+            imgsli.slider(document.querySelectorAll(".ImageComparer"));
+        });
+    </script>
+
+    <script>
+        window.requestAnimationFrame(function () {
+            var script = document.createElement("script");
+            script.type = "text/javascript";
+            // script.src = "https://imgsli.com/bundling/main.js?v=pKQ8ASHNgnlsoDSsNYWPZ2tFPEIjVx2uoCPm0gmqUl8";
+            script.src = "./js/imgsli_bundling_main.js"
+            document.head.appendChild(script);
+
+            var srcItems = [].slice.call(document.querySelectorAll("[data-lazy-src]"));
+            for (var i = 0; i < srcItems.length; i++) {
+                srcItems[i].setAttribute('src', srcItems[i].getAttribute("data-lazy-src"));
+            }
+        });
+    </script>
+</body>
+
+</html>
